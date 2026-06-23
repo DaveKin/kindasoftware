@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: "Resources — Kinda Software"
+description: "Practical guides from Kinda Software on design, colour, and building thoughtful products — and the tools that help you do it."
+---
+<main id="main">
+
+    <section class="pt-[120px] pb-[64px] px-6 border-b border-white/[0.08]">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400 mb-5">Resources</p>
+            <h1 class="text-[36px] font-semibold leading-[1.15] tracking-[-0.025em] text-white mb-6">
+                Guides &amp; resources.
+            </h1>
+            <p class="text-[17px] leading-[1.65] text-white/65">
+                Practical, evergreen guides on design, colour, and building thoughtful products — and the Kinda tools
+                that help you put them into practice.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-[64px] px-6">
+        <div class="max-w-[800px] mx-auto">
+            {% if collections.guides | length %}
+            <ul class="flex flex-col gap-4">
+                {% for guide in collections.guides %}
+                <li>
+                    <a href="{{ guide.url }}"
+                        class="block bg-mkt-surface rounded-[12px] p-6 hover:bg-mkt-surface-raised transition-colors">
+                        <h2 class="text-[18px] font-semibold text-white mb-2">{{ guide.data.title }}</h2>
+                        <p class="text-[14px] leading-[1.6] text-white/55">{{ guide.data.description }}</p>
+                        <span class="inline-block mt-4 text-[13px] font-medium text-brand-400">Read guide &rarr;</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-center text-[15px] text-white/55">New guides are on the way. Check back soon.</p>
+            {% endif %}
+        </div>
+    </section>
+
+</main>

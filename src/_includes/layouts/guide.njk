@@ -1,0 +1,63 @@
+---
+layout: base.njk
+---
+<main id="main">
+
+    <article class="pt-[120px] pb-[80px] px-6">
+        <div class="max-w-[720px] mx-auto">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-8 text-[13px] text-white/45">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <span class="mx-2" aria-hidden="true">/</span>
+                <a href="/resources/" class="hover:text-white transition-colors">Resources</a>
+                <span class="mx-2" aria-hidden="true">/</span>
+                <span class="text-white/70">{{ title }}</span>
+            </nav>
+
+            <header class="mb-10">
+                <h1 class="text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white mb-4">
+                    {{ title }}
+                </h1>
+                <p class="text-[17px] leading-[1.65] text-white/65">{{ description }}</p>
+            </header>
+
+            <div class="guide-content">
+                {{ content | safe }}
+            </div>
+
+            {% if relatedTool %}
+            {% set tool = tools | selectattr("slug", "equalto", relatedTool) | first %}
+            {% if tool %}
+            <aside class="mt-12 bg-mkt-surface rounded-[12px] p-6 flex flex-col gap-3">
+                <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400">Try the tool</p>
+                <p class="text-[15px] leading-[1.6] text-white/65">{{ tool.description }}</p>
+                <a href="/{{ tool.slug }}/" class="text-[14px] font-medium text-brand-400 hover:text-white transition-colors">
+                    Explore {{ tool.name }} &rarr;
+                </a>
+            </aside>
+            {% endif %}
+            {% endif %}
+
+            <p class="mt-12">
+                <a href="/resources/" class="text-[14px] font-medium text-brand-400 hover:text-white transition-colors">
+                    &larr; Back to all resources
+                </a>
+            </p>
+
+        </div>
+    </article>
+
+</main>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Resources", "item": "{{ site.url }}/resources/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ site.url }}{{ page.url }}" }
+    ]
+}
+</script>

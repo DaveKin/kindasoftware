@@ -42,3 +42,53 @@ body {
     outline-offset: 3px;
     border-radius: 2px;
 }
+
+/* Markdown-authored guide content (src/resources/*.md) */
+.guide-content {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.guide-content > * + * {
+    margin-top: 1.25em;
+}
+
+.guide-content h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 2em;
+}
+
+.guide-content h3 {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 1.6em;
+}
+
+.guide-content ul {
+    list-style: disc;
+    padding-left: 1.4em;
+}
+
+.guide-content ul > li + li {
+    margin-top: 0.4em;
+}
+
+.guide-content a {
+    color: var(--color-brand-400);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.guide-content a:hover {
+    color: #fff;
+}
+
+.guide-content strong {
+    color: #fff;
+    font-weight: 600;
+}

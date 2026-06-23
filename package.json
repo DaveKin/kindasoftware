@@ -4,14 +4,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p dist && cp index.html favicon.png *.svg *.jpg dist/ && tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
-    "dev": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+    "build": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify && eleventy",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch & eleventy --serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
     "@tailwindcss/cli": "^4.1.17",
     "tailwindcss": "^4.1.17"
   }
