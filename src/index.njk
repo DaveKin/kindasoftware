@@ -1,0 +1,129 @@
+---
+layout: base.njk
+---
+<main id="main">
+
+    <!-- Hero -->
+    <section
+        class="min-h-screen flex items-center justify-center text-center px-6 bg-mkt-canvas bg-[url(/assets/linesbg.svg)] bg-cover">
+        <div class="max-w-3xl mx-auto py-[80px]">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400 mb-8">
+                Independent Web Studio
+            </p>
+            <h1 class="text-[clamp(40px,6vw,64px)] font-semibold leading-[1.05] tracking-[-0.04em] text-white mb-6">
+                We build thoughtful<br>
+                <span class="text-brand-400">web applications.</span>
+            </h1>
+            <p class="text-[17px] leading-[1.65] text-white/65 max-w-xl mx-auto mb-10">
+                Kinda Software is an independent studio, focused on creating useful, beautiful, and reliable digital
+                experiences.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#projects"
+                    class="inline-flex items-center h-[50px] px-7 bg-brand-700 text-white text-[15px] font-medium rounded-[8px] hover:bg-brand-900 transition-colors"
+                    style="box-shadow: 0 0 24px rgba(4,120,87,0.25)">
+                    See Our Work
+                </a>
+                <a href="#contact"
+                    class="inline-flex items-center h-[50px] px-4 text-brand-400 text-[15px] font-medium hover:text-white transition-colors">
+                    Get in Touch &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-[80px] border-t border-white/[0.08]">
+        <div class="max-w-3xl mx-auto px-6 md:px-10 text-center">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400 mb-5">About</p>
+            <h2 class="text-[36px] font-semibold leading-[1.15] tracking-[-0.025em] text-white mb-6">
+                We're Kinda Software.
+            </h2>
+            <p class="text-[17px] leading-[1.65] text-white/65">
+                We're a small studio who believe that software doesn't need to be complicated to be powerful. We
+                focus on clear communication, clean code, and building products that people genuinely enjoy using.
+                From initial idea to final launch, we're committed to bringing our vision to the web.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-[80px] border-t border-white/[0.08]">
+        <div class="max-w-[1120px] mx-auto px-6 md:px-10">
+            <div class="text-center mb-12">
+                <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400 mb-5">Products</p>
+                <h2 class="text-[36px] font-semibold leading-[1.15] tracking-[-0.025em] text-white">
+                    Our first product is here.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                {% for tool in tools %}
+                <!-- {{ tool.name }} -->
+                <div class="bg-mkt-surface rounded-[12px] overflow-hidden">
+                    <img src="{{ tool.image }}" alt="{{ tool.name }}" class="w-full h-48 object-cover">
+                    <div class="p-[18px]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <h3 class="sr-only">{{ tool.name }}</h3>
+                            <span class="inline-flex h-7">{% include "logos/" + tool.slug + ".svg" %}</span>
+                            <span
+                                class="ml-auto text-[12px] font-medium text-brand-400 bg-brand-dark-muted border border-brand-500/20 rounded-full px-[10px] py-[3px]">
+                                {{ tool.status }}
+                            </span>
+                        </div>
+                        <p class="text-[13px] leading-[1.6] text-white/45">
+                            {{ tool.description }}
+                        </p>
+                        <a href="/{{ tool.slug }}/"
+                            class="inline-flex items-center h-[40px] mt-5 px-5 bg-brand-700 text-white text-[14px] font-medium rounded-[8px] hover:bg-brand-900 transition-colors">
+                            Explore {{ tool.name }} &rarr;
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- More on the way -->
+                <div
+                    class="bg-mkt-surface rounded-[12px] flex items-center justify-center text-center p-[18px] min-h-[160px]">
+                    <div>
+                        <h3 class="text-[14px] font-medium text-white">More on the way</h3>
+                        <p class="text-[13px] leading-[1.6] text-white/45 mt-2 max-w-xs mx-auto">
+                            Distil is the first of a few tools we're working on. We'll add them here as they're
+                            ready.
+                        </p>
+                        <p
+                            class="inline-block mt-4 text-[12px] font-medium text-white/60 bg-white/[0.07] rounded-full px-[10px] py-[3px]">
+                            Coming soon
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-[14px] text-white/45 mt-12">
+                Looking for guidance? Browse our
+                <a href="/resources/" class="text-brand-400 hover:text-white transition-colors">free resources</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-[80px] border-t border-white/[0.08]">
+        <div class="max-w-3xl mx-auto px-6 md:px-10 text-center">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.09em] text-brand-400 mb-5">Get in Touch</p>
+            <h2 class="text-[36px] font-semibold leading-[1.15] tracking-[-0.025em] text-white mb-6">
+                Let's build something.
+            </h2>
+            <p class="text-[17px] leading-[1.65] text-white/65 mb-10">
+                Have an idea? We're always excited to hear about new projects.
+            </p>
+            <a href="mailto:hello@kindasoftware.com"
+                class="inline-flex items-center h-[50px] px-7 bg-brand-700 text-white text-[15px] font-medium rounded-[8px] hover:bg-brand-900 transition-colors"
+                style="box-shadow: 0 0 24px rgba(4,120,87,0.25)">
+                hello@kindasoftware.com
+            </a>
+        </div>
+    </section>
+
+</main>

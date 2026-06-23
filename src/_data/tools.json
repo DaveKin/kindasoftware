@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Distil",
+    "slug": "distil",
+    "tagline": "Build colour palettes from your images.",
+    "description": "Give Distil up to five images and it builds a colour palette from them. Export it ready to drop straight into your UI kit, store theme, or other publishing tools.",
+    "image": "/assets/distil.jpg",
+    "appUrl": "https://distil.kindasoftware.com",
+    "status": "Available now"
+  }
+]

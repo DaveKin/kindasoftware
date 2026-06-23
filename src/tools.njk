@@ -1,0 +1,66 @@
+---
+pagination:
+  data: tools
+  size: 1
+  alias: tool
+permalink: "/{{ tool.slug }}/"
+layout: base.njk
+eleventyComputed:
+  title: "{{ tool.name }} — {{ tool.tagline }}"
+  description: "{{ tool.description }}"
+---
+<main id="main">
+
+    <section class="pt-[120px] pb-[80px] px-6 bg-mkt-canvas bg-[url(/assets/linesbg.svg)] bg-cover">
+        <div class="max-w-[1120px] mx-auto">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-10 text-[13px] text-white/45">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <span class="mx-2" aria-hidden="true">/</span>
+                <span class="text-white/70">{{ tool.name }}</span>
+            </nav>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <!-- Copy -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <h1 class="sr-only">{{ tool.name }} — {{ tool.tagline }}</h1>
+                        <span class="inline-flex h-9">{% include "logos/" + tool.slug + ".svg" %}</span>
+                        <span
+                            class="text-[12px] font-medium text-brand-400 bg-brand-dark-muted border border-brand-500/20 rounded-full px-[10px] py-[3px]">
+                            {{ tool.status }}
+                        </span>
+                    </div>
+                    <p aria-hidden="true"
+                        class="text-[clamp(28px,4vw,40px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white mb-6">
+                        {{ tool.tagline }}
+                    </p>
+                    <p class="text-[17px] leading-[1.65] text-white/65 mb-10 max-w-md">
+                        {{ tool.description }}
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="{{ tool.appUrl }}" target="_blank" rel="noopener"
+                            class="inline-flex items-center h-[50px] px-7 bg-brand-700 text-white text-[15px] font-medium rounded-[8px] hover:bg-brand-900 transition-colors"
+                            style="box-shadow: 0 0 24px rgba(4,120,87,0.25)">
+                            Visit {{ tool.name }} &rarr;
+                        </a>
+                        <a href="/resources/"
+                            class="inline-flex items-center h-[50px] px-4 text-brand-400 text-[15px] font-medium hover:text-white transition-colors">
+                            Read the guides
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Screenshot -->
+                <div class="bg-mkt-surface rounded-[12px] overflow-hidden">
+                    <img src="{{ tool.image }}" alt="Screenshot of {{ tool.name }}"
+                        class="w-full h-auto object-cover">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
